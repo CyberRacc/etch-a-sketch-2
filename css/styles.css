@@ -1,0 +1,40 @@
+:root {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+body {
+    margin: 0;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 100px;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 50px;
+}
+
+.grid {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    width: 500px;
+}
+
+.grid-cell {
+    margin: 1px;
+    width: 8px;
+    height: 8px;
+    background-color: blue;
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-wrap: wrap;
+}
