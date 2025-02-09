@@ -4,6 +4,10 @@
 
 body {
     margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
 }
 
 header {
@@ -12,6 +16,7 @@ header {
     justify-content: center;
     text-align: center;
     height: 100px;
+    background-color: aliceblue;
 }
 
 footer {
@@ -20,21 +25,40 @@ footer {
     align-items: center;
     text-align: center;
     height: 50px;
+    background-color: aliceblue;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 24px;
+    align-items: center;
+    background-color: rgb(156, 156, 156);
+    height: calc(100vh - 150px);
+}
+
+.new {
+    padding: 12px;
+    color: white;
+    background-color: blue;
+    border: 2px solid black;
+    border-radius: 12%;
+    font-weight: bold;
 }
 
 .grid {
     display: flex;
-    margin: 0;
-    padding: 0;
-    width: 500px;
+    width: 75vw;
+    height: auto;
+    flex: 1 0;
 }
 
-.grid-cell {
-    margin: 1px;
-    width: 8px;
-    height: 8px;
-    background-color: blue;
-    flex-grow: 0;
-    flex-shrink: 0;
-    flex-wrap: wrap;
+.grid > div {
+    display: flex;
+    border: 1px solid black;
+}
+
+.grid > div > :nth-child(16n + 1) {
+    display: flex;
 }
