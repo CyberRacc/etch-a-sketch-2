@@ -1,6 +1,8 @@
 // Global vars
 const grid = document.querySelector('.grid');
 const newGridButton = document.querySelector('.new');
+let lightness = 80; // Set an initial lightness of 80 to be reduced during the loop.
+
 
 const createGrid = (size) => {
     console.log("Creating grid...");
@@ -44,16 +46,25 @@ const clearGrid = () => {
     console.log('Grid cleared.');
 }
 
-const randomValue = () => {
-    return Math.floor(Math.random() * 255)
+const randomHue = () => {
+    return Math.floor(Math.random() * 360) // 360 is max hue value in HSL.
 };
+
+const randomSat = () => {
+    return Math.floor(Math.random() * 100) // 100 is the max saturation in HSL.
+}
 
 const gridEventListeners = () => {
     const cells = document.querySelectorAll('.grid-cell')
-
     cells.forEach(cell => {
+        cell.dataset.lightness = 80;
+
         cell.addEventListener('mouseover', () => {
-            cell.style.background = `rgb(${randomValue()}, ${randomValue()}, ${randomValue()})`
+            let currentLightness = cell.dataset.lightness;
+            let bgColour = `hsl(${randomHue()}, ${randomSat()}%, ${currentLightness}%)`
+            cell.style.background = bgColour
+            console.log(`Set background colour to ${bgColour}`)
+            if (currentLightness > 0) cell.dataset.lightness = currentLightness - 5;
         });
     });
 };
