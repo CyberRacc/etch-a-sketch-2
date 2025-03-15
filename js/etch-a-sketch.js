@@ -5,11 +5,17 @@ const newGridButton = document.querySelector('.new');
 const createGrid = (size) => {
     console.log("Creating grid...");
 
-    for (let i = 0; i <= size; i++) {
-        for (let j = 0; j <= size; j++) {
+    // Create the grid rows
+    for (let i = 1; i <= size; i++) {
+        gridRow = document.createElement('div');
+        gridRow.classList.add('grid-row');
+        grid.appendChild(gridRow)
+
+        // Create the grid cells and append to gridRow
+        for (let j = 1; j <= size; j++) {
             gridCell = document.createElement('div')
             gridCell.classList.add('grid-cell')
-            grid.appendChild(gridCell)
+            gridRow.appendChild(gridCell)
         }
     }
 
@@ -22,7 +28,9 @@ const newGrid = () => {
 
     clearGrid();
 
-    while (newSize <= 0 || newSize > 128) {
+    while (newSize <= 0 || newSize > 128 || isNaN(newSize) ) {
+        if (newSize === undefined || newSize === null) break;
+
         newSize = parseInt(prompt("Enter new grid size (128 max)"))
     }
 
